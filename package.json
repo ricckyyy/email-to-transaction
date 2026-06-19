@@ -1,0 +1,21 @@
+{
+  "name": "email-to-transaction",
+  "version": "0.1.0",
+  "description": "Parse credit card notification emails into structured transaction data",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0"
+  }
+}
