@@ -9,6 +9,7 @@ export type CardConfig = {
     name: string;
     senderDomain: string;
     encoding: string;
+    timezoneOffset: number;
     patterns: {
         date: RegExp;
         merchant: RegExp;
