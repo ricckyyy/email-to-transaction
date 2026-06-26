@@ -6,6 +6,7 @@ const TEST_CONFIG: CardConfig = {
   name: 'テストカード',
   senderDomain: 'example.com',
   encoding: 'utf-8',
+  timezoneOffset: 9,
   patterns: {
     date: /利用日時?[：:]\s*(\d{4}\/\d{2}\/\d{2}\s+\d{2}:\d{2})/,
     merchant: /利用先[：:]\s*(.+)/,
@@ -33,7 +34,7 @@ describe('parseFields', () => {
     expect(result!.cardName).toBe('テストカード')
   })
 
-  it('日付をJSTとして正しくパースする', () => {
+  it('日付をタイムゾーンオフセットに基づいてUTCへ変換する', () => {
     const result = parseFields(DECODED_TEXT, TEST_CONFIG)
     expect(result!.date).toEqual(new Date('2026-06-18T23:46:00.000Z'))
   })

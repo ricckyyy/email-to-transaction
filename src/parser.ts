@@ -12,8 +12,7 @@ export function parseFields(text: string, config: CardConfig): ParsedTransaction
   const [datePart, timePart = '00:00'] = dateStr.split(/\s+/)
   const [year, month, day] = datePart.split('/').map(Number)
   const [hour, minute] = timePart.split(':').map(Number)
-  // JSTはUTC+9なので9時間引く
-  const date = new Date(Date.UTC(year, month - 1, day, hour - 9, minute))
+  const date = new Date(Date.UTC(year, month - 1, day, hour - config.timezoneOffset, minute))
 
   const amount = Number(amountMatch[1].replace(/,/g, ''))
 
